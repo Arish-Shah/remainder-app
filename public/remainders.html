@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>All Remainders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./assets/bulma/css/bulma.css">
+</head>
+<body>
+
+    <!-- NavBar -->
+    <nav class="navbar is-primary is-expanded" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item is-size-3 title">
+                Remainder App
+            </a>
+        </div>
+    </nav>
+
+
+    <center>
+    <section class="section">
+        <div class="container" id="table-container">
+            <!-- The Tables loads here -->
+        </div>
+    </section>
+    
+    <!-- Add Entry -->
+    <section class="section">
+        <div class="container">
+            
+        </div>
+    </section>
+    </center>
+
+    <!-- Add Details Modal -->
+    <div class="modal" id="add-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Enter details</p>
+            <button class="delete" aria-label="close" onclick="closeAddModal()"></button>
+            </header>
+            <section class="modal-card-body">
+                
+                <!-- The Form -->
+                <!-- Machine No -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Machine No</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="text" class="input" id="add-number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Insurance -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Insurance</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="date" class="input" id="add-insurance">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fitness -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Fitness</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="date" class="input" id="add-fitness">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Taxtation -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Taxtation</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="date" class="input" id="add-taxtation">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Permit -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Permit</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="date" class="input" id="add-permit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- PUC -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">PUC</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="date" class="input" id="add-puc">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-primary" onclick="addEntry()">Add Entry</button>
+                <button class="button" onclick="closeAddModal()">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+
+    <!-- Edit Details Modal -->
+    <div class="modal" id="edit-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Edit details</p>
+            <button class="delete" aria-label="close" onclick="closeEditModal()"></button>
+            </header>
+            <section class="modal-card-body">
+                
+                <!-- The Form -->
+                <!-- Machine No -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Machine No</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="text" class="input" id="edit-number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Insurance -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Insurance</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="date" class="input" id="edit-insurance">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fitness -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Fitness</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="date" class="input" id="edit-fitness">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Taxtation -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Taxtation</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="date" class="input" id="edit-taxtation">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Permit -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Permit</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="date" class="input" id="edit-permit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- PUC -->
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">PUC</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input type="date" class="input" id="edit-puc">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-primary" onclick="updateEntry()">Save Changes</button>
+                <button class="button" onclick="closeEditModal()">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Delete yes/no Modal -->
+    <div class="modal" id="delete-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Are you sure you want to delete this record?</p>
+                <button class="delete" aria-label="close" onclick="closeDeleteModal()"></button>
+            </header>
+            <section class="modal-card-body">
+                Record once deleted cannot be recovered.
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-danger" id="delete-confirm">Delete</button>
+                <button class="button" onclick="closeDeleteModal()">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+
+
+
+    <script src="./js/remainders.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/cookie_loggedin.js"></script>
+</body>
+</html>

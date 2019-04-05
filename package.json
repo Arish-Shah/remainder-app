@@ -1,0 +1,13 @@
+{
+  "name": "remainder",
+  "version": "1.0.0",
+  "proxy": "http://localhost:3000",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Arish Rahil Shah",
+  "dependencies": {
+    "bulma": "^0.7.4",
+    "express": "^4.16.4"
+  }
+}
