@@ -32,6 +32,7 @@ function setCookie(cname,cvalue,exdays) {
 
   function signOut(){
     setCookie("username", "", 0);
+    location.href = 'index.html';
   }
   
 //Calling in to check if cookie is set
