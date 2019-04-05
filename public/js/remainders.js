@@ -34,11 +34,11 @@ const getClassColor = (paramDate) => {
     let todayDate = new Date();
 
     if(todayDate >= intervalDate && todayDate <= date) {
-        return "is-danger";
+        return "is-warning";
     }
     
     if(todayDate >= intervalDate && todayDate >= date){
-        return "";
+        return "is-danger";
     }
 };
 
