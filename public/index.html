@@ -1,65 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Remainder App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./assets/bulma/css/bulma.css">
-</head>
-<body>
+    <head>
+        <title>Remainder App</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        
+        <!-- The Navbar -->
+        <nav class="navbar navbar-dark bg-primary">
+            <a class="navbar-brand mx-auto text-white" href=""><b>Remainder App</b></a>
+        </nav>
 
-    <!-- NavBar -->
-    <nav class="navbar is-primary is-expanded" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand" style="flex-grow: 1; justify-content: center;">
-            <a class="navbar-item is-size-3 title">
-                Remainder App
-            </a>
-        </div>
-    </nav>
-
-    <!-- Login Form -->
-    <section class="section">
+        <!-- Login Form -->
         <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-narrow is-one-third">
-                    <div class="box">
-                        <p class="title is-5 is-centered">Log in to your account</p>
-                        <hr class="hr">
-                        <!-- Wrong credentials error -->
-                        <div class="tag is-medium is-warning title" style="display: none;" id="login-err">Incorrect name or password.</div>
-                        <p class="subtitle">
-                            <form onsubmit="return validate()" name="login">
-                                <div class="field">
-                                    <label class="label">Name</label>
-                                    <div class="control">
-                                        <input class="input" name="name" type="text" placeholder="arizh">
-                                    </div>
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card card-signin my-5">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Log in to your account</b></h5>
+                            <hr class="my-3">
+                            <form name="login-form" onsubmit="return login()">
+                                <!-- Error comes here -->
+                                <div id="error-alert"></div>
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username" class="form-control" placeholder="&quot;arizh&quot;" required autofocus>
                                 </div>
-                                <div class="field">
-                                    <label class="label">Password</label>
-                                    <div class="control">
-                                        <input class="input" name="password" type="password" placeholder="●●●●">
-                                    </div>
+                  
+                                <div class="form-group">
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
                                 </div>
-                                <hr class="hr">
-                                <div class="field is-grouped">
-                                    <div class="control">
-                                        <button class="button is-link" type="submit" id="submit-btn">Submit</button>
-                                    </div>
-                                    <div class="control">
-                                        <button class="button" type="reset">Reset</button>
-                                    </div>
-                                </div>
+                                <hr class="my-3">
+                                <button class="btn btn-primary" type="submit">Log in</button>&nbsp;
+                                <button class="btn btn-light" type="reset">Reset</button>
                             </form>
-                        </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div>         
         </div>
-    </section>
+        
+        <script src="./js/cookies.js"></script>
+        <script>  
 
-    <script src="./js/cookie_login.js"></script>
-    <script src="./js/index.js"></script>
-</body>
+            if(checkCookie("rem_username")){
+                location.href = 'remainders.html';
+            }
+
+            const login = () => {
+                let username = document.forms['login-form']['username'].value.trim().toUpperCase();
+                let password = document.forms['login-form']['password'].value.toUpperCase();
+
+                if(username == 'ASHFAQUE' && password == 'ASHFAQUE@81') {
+                    setCookie("rem_username", username, 30);
+                    location.href = 'remainders.html';
+                } else {
+                    document.querySelector('#error-alert').innerHTML = `<div class="alert alert-danger">Incorrect username or password.</div>`;
+                }
+                return false;
+            };
+
+        </script>
+
+    </body>
 </html>
